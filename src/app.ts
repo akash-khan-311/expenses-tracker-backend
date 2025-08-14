@@ -1,0 +1,24 @@
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import express, { Request, Response } from 'express';
+import router from './app/routes';
+const app = express();
+
+// Parsers
+app.use(express.json());
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cookieParser());
+
+// Application Routes
+app.use('/api/v1/', router);
+
+app.get('/api/v1', (req: Request, res: Response) => {
+  res.send('Expense Tracker API Live Now 1');
+});
+
+app.get('/', (req: Request, res: Response) => {
+  const name = 'Expense Tracker API Live Now';
+  res.send(name);
+});
+
+export default app;
