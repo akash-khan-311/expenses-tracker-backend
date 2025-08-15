@@ -11,10 +11,22 @@ const expensesValidationSchema = z.object({
       .number()
       .nonnegative('Amount must be a non-negative number')
       .min(0, 'Amount must be at least 0'),
-    date: z.date(),
+    date: z.string(),
+  }),
+});
+
+const updateValidationSchema = z.object({
+  body: z.object({
+    title: z.string().optional(),
+    amount: z.number().optional(),
+    date: z.string().optional(),
+    category: z.string().optional(),
+    isDeleted: z.boolean().optional(),
+    userId: z.string().optional(),
   }),
 });
 
 export const ExpensesValidation = {
   expensesValidationSchema,
+  updateValidationSchema,
 };
