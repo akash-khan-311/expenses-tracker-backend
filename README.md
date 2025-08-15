@@ -11,7 +11,7 @@ It provides authentication, expense management, and protected routes.
   - Register
   - Login
   - JWT-based access & refresh tokens
-- User roles: `user`, `admin`, `superAdmin`
+- User roles: `user`, `admin`,
 - Expense management:
   - Add new expense
   - Prevent duplicate titles per user
@@ -41,7 +41,7 @@ It provides authentication, expense management, and protected routes.
 1. Clone the repository:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/akash-khan-311/expenses-tracker-backend.git
 cd backend
 npm install
 ```
