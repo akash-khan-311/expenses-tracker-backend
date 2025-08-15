@@ -27,7 +27,7 @@ export const createExpensesIntoDb = async (payload: TExpense) => {
 
 const getAllExpensesFromDb = async (query: Record<string, unknown>) => {
   const expensesQuery = new QueryBuilder(
-    Expense.find().populate('userId'),
+    Expense.find({ isDeleted: false }).populate('userId'),
     query
   )
     .search(['title', 'category'])
@@ -42,7 +42,9 @@ const getAllExpensesFromDb = async (query: Record<string, unknown>) => {
 };
 
 const getSingleExpensesFromDb = async (id: string) => {
-  const result = await Expense.findById({ _id: id }).populate('userId');
+  const result = await Expense.findById({ _id: id, isDeleted: false }).populate(
+    'userId'
+  );
   return result;
 };
 

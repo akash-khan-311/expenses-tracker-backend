@@ -18,7 +18,7 @@ const expensesValidationSchema = z.object({
 const updateValidationSchema = z.object({
   body: z.object({
     title: z.string().optional(),
-    amount: z.number().optional(),
+    amount: z.string().optional(),
     date: z.string().optional(),
     category: z.string().optional(),
     isDeleted: z.boolean().optional(),
